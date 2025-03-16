@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>DOM</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="./output.css" rel="stylesheet">
+    </head>
+    <body class="bg-[rgb(30,30,40)] text-amber-200">
+
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+<input id="sample2" type="button" value="Sample2" /> <br><br>
+
+<!-- BUBBLING -->
+
+<form onclick="alert('target= ' + event.target.tagName
++ ' ,this= ' + this.tagName)">FORM
+    <div onclick="alert('target= ' + event.target.tagName
+    + ' ,this= ' + this.tagName)">DIV
+        <p onclick="alert('target= ' + event.target.tagName
+         + ' ,this= ' + this.tagName)">P
+         </p>
+    </div>
+</form><br>
+
+<div onclick="alert(`the bubbling doesn't reach here`)">
+    <button onclick="event.stopPropagation();
+    alert(`just button handler executed`)">
+        Click me
+    </button>
+</div><br>
+
+<div onclick="divClicked(event)">
+    <button onclick="myBtnClicked(event)">
+        Click me
+    </button>
+</div><br>
+
+
+<div id="grandparent" class="w-[120px] h-[120px] bg-amber-300">
+    <div id="parent" class="w-[80px] h-[80px] bg-amber-400">
+        <div id="child" class="w-[40px] h-[40px] bg-amber-600">
+
+        C</div>
+    P</div>
+G</div>
+<br>
+
+<input id="kevents" type="text" class="border-2">
+<br>
+
+<!-- ALERTS WHEN THE INPUT LOSES FOCUS -->
+<input type="text" onchange="alert(this.value)" class="border-2">
+<br>
+
+<!-- BEST WAY TO TRACK CHANGES -->
+<input id="input1" type="text" class="border-2" placeholder="add text here">
+<span id="span1"></span>
+<br><br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <script src="script.js" defer> // async=LOADS WITH HTML // defer=LOADS AFTER HTML BUT B4 DOMCONTENTLOADED
+        // defer and async are useful only for external scripts (< src="script.js" defer><//script>).
+
+        </script>
+    </body>
+</html>
